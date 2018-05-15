@@ -19,10 +19,16 @@ def reply(tweet):
 
 def idle_text():
     """Return text that is tweeted when not replying"""
+	
     # Construct the text we want to tweet out (280 chars max)
     berlin_time = datetime.now(timezone('Europe/Berlin'))
     formatted_time = berlin_time.strftime("%H:%M:%S")
     random.seed(formatted_time)
+    
+    blobfisch = []
+    for i in range(16):
+        blobfisch.append(random.choice(("1", "!")))
+    	
     text = "I have a meeting with my " + random.choice((
 		"doctor", 
 		"hairdresser", 
@@ -34,5 +40,5 @@ def idle_text():
 		"grandparents",
 		"teacher",
 		"classmate",
-		)) + " at " + formatted_time + "."
+		)) + " at " + formatted_time + ". WIR SIND BLOBFISCH" + "".join(blobfisch)
     return text
